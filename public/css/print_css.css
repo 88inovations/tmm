@@ -1,0 +1,153 @@
+@page {
+  size: A4;
+  margin: 5mm 11mm 0mm 11mm;
+}
+
+@media print {
+  
+
+  .table {
+    page-break-after: always;
+  }
+
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    overflow: initial;
+    font-family:'Calibri', Arial, sans-serif;
+    font-size: 12px;
+  }
+
+   
+
+           
+        
+}
+
+.lead{
+  text-transform: capitalize;
+}
+
+.logo_araa{
+  width: 20%;
+    float: left;
+}
+.company_name_area{
+      width: 40%;
+    float: left;
+
+}
+
+.company_name_title{
+   text-align: right;
+    font-size: 24px;
+    color: #20ce20;
+    font-weight: 500;
+    text-decoration: underline;
+    font-family: 'Algerian';
+
+}
+.company_sub_title{
+  text-align: right;
+    color: #ff0066;
+    font-weight: bold;
+}
+.company_address_area{
+  width: 40%;
+    float: left;
+    font-size:12px;
+}
+.head_office{
+  color: #ff0066;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.invoice_title_area{
+      text-align: right;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.invoice_title{
+  font-size: 18px;
+    padding: 10px;
+    font-weight: 700;
+    background: #20ce20;
+    margin-top: 27px;
+    color: yellow;
+    border-radius: 10px;
+}
+.page_copy_araa{
+  text-align: right;
+}
+.page_copy_title {
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    color: red;
+    font-weight: 800;
+}
+.border_1px{
+  border: 1px solid #000;
+}
+.ledger_info_header{
+  font-weight: 700;
+  text-decoration: underline;
+}
+.inv_footer_arrea_left{
+  text-align: left;
+}
+.inv_footer_arrea_right{
+  text-align: right;
+}
+.inv_footer_arrea_center{
+  text-align: center;
+}
+.sing_section{
+  border-top: 1px solid #000;
+}
+.padding_5px{
+  padding:5px;
+}
+
+.background-image {
+  padding-top:50px ;
+   width: 400px; /* Adjust max-width as needed */
+   height: 400px;
+    display: block;
+    padding-left: 20%;
+    margin: 0 auto;
+    filter: brightness(50%); /* Adjust brightness level (0% to 100%) */
+    position: absolute;
+    opacity: 0.2;
+  
+}
+.inv_template_footer{
+  position: absolute;
+  bottom: 0;
+   width: 210mm;
+   z-index: 1000; /* Ensure it's above other content */
+   
+}
+
+
+._required{
+  color: red;
+  font-weight: bold;
+}
+.text-right{
+  text-align: right;
+}
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+td{
+    padding-right:3px;
+}
+

@@ -1,0 +1,81 @@
+
+
+
+@media only screen and (max-width: 600px) {
+  .remove_from_header{
+  	display: none;
+  }
+  ._action_button{
+  	margin-bottom: 10px;
+  }
+  .width_100_px{
+  	width: 100px;
+  }
+  .width_150_px{
+  	width: 150px;
+  }
+  .width_200_px{
+  	width: 200px;
+  }
+  .width_250_px{
+  	width: 250px;
+  }
+
+    ._nv_th_action{
+      width: 120px;
+  }
+  ._nv_th_id{
+      width: 120px;
+  }
+  ._nv_th_code{
+      width: 120px;
+  }
+  ._nv_th_date{
+      width: 150px;
+  }
+  ._nv_th_type{
+      width:  150px;
+  }
+  ._nv_th_amount{
+      width:  250px;
+  }
+  ._nv_th_ref{
+      width:  250px;
+  }
+  ._nv_th_note{
+      width:  250px;
+  }
+  ._nv_th_branch{
+      width:  150px;
+  }
+  ._nv_th_user{
+      width:  150px;
+  }
+
+   ._barcode_search_div{
+    position: relative;
+    margin-left: 0%;
+    top: 0;
+    z-index: 999;
+}
+
+input[type='text'] {
+  width: 100% ;
+}
+textarea.form-control {
+    width: 100% !important;
+}
+.datetimepicker-input{
+  width: 240px !important;
+}
+
+}
+
+@media only screen and (min-width: 768px) {
+  
+  ._action_button{
+  	margin-bottom: 1px;
+    margin-top: 1px;
+  }
+
+ }

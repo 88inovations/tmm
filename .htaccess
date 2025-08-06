@@ -1,0 +1,5 @@
+<IfModule mime_module>
+RewriteRule ^$ public/index.php [L]
+RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+  
+</IfModule>

@@ -1,0 +1,326 @@
+
+<?php $__env->startSection('title',$page_name); ?>
+
+<?php $__env->startSection('css'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('backend/new_style.css')); ?>">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<?php
+$__user= Auth::user();
+?>
+<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class=" col-sm-6 ">
+           <a class="m-0 _page_name" href="<?php echo e(route('purchase-order.index')); ?>"><?php echo $page_name ?? ''; ?> </a>
+          </div><!-- /.col -->
+          <div class=" col-sm-6 ">
+            <ol class="breadcrumb float-sm-right">
+               <?php echo $__env->make('backend.common-modal.item_ledger_sub_link', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+               
+              <li class="breadcrumb-item ">
+                 <a class="btn btn-sm btn-success" title="List" href="<?php echo e(route('purchase-order.index')); ?>"> <i class="nav-icon fas fa-list"></i> </a>
+               </li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+  
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                 
+                    <?php echo $__env->make('backend.message.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    
+              </div>
+              <div class="card-body">
+               <form action="<?php echo e(route('purchase-order.store')); ?>" method="POST" class="purchase_form" >
+                <?php echo csrf_field(); ?>
+                                   <div class="row">
+
+                       <div class="col-xs-12 col-sm-12 col-md-2">
+                        <input type="hidden" name="_form_name" value="purchase_orders">
+                            <div class="form-group">
+                                <label>Date:</label>
+                                  <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                      <input type="text" name="_date" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                                      <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-2 ">
+                            <div class="form-group">
+                              <label class="mr-2" for="_order_number">Order Number:</label>
+                              <input type="text" id="_order_number" name="_order_number" class="form-control _order_number" value="<?php echo e(old('_order_number')); ?>" placeholder="Order Number" readonly >
+                              <input type="hidden" name="_search_form_value" class="_search_form_value" value="2">
+                              <input  type="hidden" name="add_or_edit" class="add_or_edit" value="0">
+                                
+                            </div>
+                        </div>
+                        <?php echo $__env->make('basic.org_create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <div class="col-xs-12 col-sm-12 col-md-2 ">
+                            <div class="form-group">
+                              <label class="mr-2" for="delivery_status">Delivery Status:</label>
+                              <select class="form-control" name="_delivery_status">
+                                <?php $__empty_1 = true; $__currentLoopData = _delivery_status(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$d_val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                  <option value="<?php echo e($key); ?>"><?php echo e($d_val ?? ''); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                <?php endif; ?>
+                              </select>
+                             
+                                
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                         <div class="col-xs-12 col-sm-12 col-md-3 ">
+                            <div class="form-group">
+                              <label class="mr-2" for="_main_ledger_id">Supplier:<span class="_required">*</span></label>
+                            <input type="text" id="_search_main_ledger_id" name="_search_main_ledger_id" class="form-control _search_main_ledger_id" value="<?php echo e(old('_search_main_ledger_id')); ?>" placeholder="Supplier" required>
+
+                            <input type="hidden" id="_main_ledger_id" name="_main_ledger_id" class="form-control _main_ledger_id" value="<?php echo e(old('_main_ledger_id')); ?>" placeholder="Supplier" required>
+                            <div class="search_box_main_ledger"> </div>
+
+                                
+                            </div>
+                        </div>
+                         <div class="col-xs-12 col-sm-12 col-md-2 ">
+                            <div class="form-group">
+                              <label class="mr-2" for="_phone">Phone:</label>
+                              <input type="text" id="_phone" name="_phone" class="form-control _phone" value="<?php echo e(old('_phone')); ?>" placeholder="Phone" >
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-2 ">
+                            <div class="form-group">
+                              <label class="mr-2" for="_address">Address:</label>
+                              <input type="text" id="_address" name="_address" class="form-control _address" value="<?php echo e(old('_address')); ?>" placeholder="Address" >
+                                
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2 ">
+                            <div class="form-group">
+                              <label class="mr-2" for="_supplier_so_no"><?php echo e(__('label._supplier_so_no')); ?>:</label>
+                              <input type="text" id="_supplier_so_no" name="_supplier_so_no" class="form-control _supplier_so_no" value="<?php echo e(old('_supplier_so_no')); ?>" placeholder="<?php echo e(__('label._supplier_so_no')); ?>" >
+                                
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2 ">
+                            <div class="form-group">
+                              <label class="mr-2" for="_referance">Referance:</label>
+                              <input type="text" id="_referance" name="_referance" class="form-control _referance" value="<?php echo e(old('_referance')); ?>" placeholder="Referance" >
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-12  ">
+                             <div class="card">
+                              <div class="card-header">
+                                <strong>Details</strong>
+
+                              </div>
+                             
+                              <div class="card-body">
+                                <div class="table-responsive">
+                                      <table class="table table-bordered" >
+                                          <thead >
+                                            <th class="text-middle" >&nbsp;</th>
+                                            <th class="text-middle" >ID</th>
+                                            <th class="text-middle" >Item</th>
+                                            <th class="text-left" >Base Unit</th>
+                                            <th class="text-middle" >Base Rate </th>
+                                            <th class="text-left" >Con. Qty</th>
+                                            <th class="text-left" >Tran. Unit</th>
+                                            <th class="text-middle">Qty</th>
+                                            <th class="text-middle" >Rate </th>
+                                            <th class="text-middle" >Value</th>
+                                          </thead>
+                                          <tbody class="area__purchase_details" id="area__purchase_details">
+                                            <tr class="_purchase_row">
+                                              <td>
+                                                <a  href="#none" class="btn btn-default _purchase_row_remove" ><i class="fa fa-trash"></i></a>
+                                              </td>
+                                              <td></td>
+                                              <td>
+                                                <input type="text" name="_search_item_id[]" class="form-control _search_item_id width_280_px" placeholder="Item">
+                                                <input type="hidden" name="_item_id[]" class="form-control _item_id width_200_px" >
+                                                <div class="search_box_item">
+                                                  
+                                                </div>
+                                              </td>
+                                             <td class="">
+                                                <input type="hidden" class="form-control _base_unit_id width_100_px" name="_base_unit_id[]" />
+                                                <input type="text" class="form-control _main_unit_val width_100_px" readonly name="_main_unit_val[]" />
+                                              </td>
+                                              <td>
+                                                <input type="number" min="0" step="any" name="_base_rate[]" class="form-control _base_rate _common_keyup" >
+                                              </td>
+                                              <td>
+                                                <input type="number" name="conversion_qty[]" class="form-control conversion_qty " value="1" readonly>
+                                                <input type="hidden" name="_code[]" class="form-control _code " >
+                                              </td>
+                                              <td class="">
+                                                <select class="form-control _unit_id" name="_unit_id[]">
+                                                </select>
+                                              </td>
+                                              
+                                              
+                                              
+                                            
+                                              <td>
+                                                <input type="number" name="_qty[]" class="form-control _qty _common_keyup" step="any" min="0">
+                                              </td>
+                                              <td>
+                                                <input type="number" name="_rate[]" class="form-control _rate "  step="any" min="0">
+                                                
+                                              </td>
+                                              <td>
+                                                <input type="number" name="_value[]" class="form-control text-right _value " min="0" step="any" readonly >
+                                              </td>
+                                            
+                                            
+                                              
+                                             
+                                             
+                                              
+                                            </tr>
+                                          </tbody>
+                                          <tfoot>
+                                            <tr>
+                                              <td>
+                                                <a href="#none"  class="btn btn-default btn-sm" onclick="purchase_order_row(event)"><i class="fa fa-plus"></i></a>
+                                              </td>
+                                              <td   colspan="6" class="text-right"><b>Total</b></td>
+                                             
+                                             
+                                              <td>
+                                                <input type="number" step="any" min="0" name="_total_qty_amount" class="form-control _total_qty_amount" value="0" readonly required>
+                                              </td>
+                                              <td></td>
+                                              <td>
+                                                <input type="number" step="any" min="0" name="_total_value_amount" class="form-control _total_value_amount" value="0" readonly required>
+                                              </td>
+                                             
+                                              
+
+                                              
+                                              
+                                            </tr>
+                                          </tfoot>
+                                      </table>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                       <?php if($__user->_ac_type==1): ?>
+                      <?php echo $__env->make('backend.purchase-order.create_ac_cb', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                         
+                      <?php else: ?>
+                       <?php echo $__env->make('backend.purchase-order.create_ac_detail', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                      <?php endif; ?>
+                         
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 mb-10">
+                          <table class="table" style="border-collapse: collapse;">
+                            <tr>
+                              <td style="width: 10%;border:0px;"><label for="_note">Note</label></td>
+                              <td style="width: 70%;border:0px;">
+                                <?php if($_print = Session::get('_print_value')): ?>
+                                     <input type="hidden" name="_after_print" value="<?php echo e($_print); ?>" class="_after_print" >
+                                    <?php else: ?>
+                                    <input type="hidden" name="_after_print" value="0" class="_after_print" >
+                                    <?php endif; ?>
+                                    <?php if($_master_id = Session::get('_master_id')): ?>
+                                     <input type="hidden" name="_master_id" value="<?php echo e(url('purchase-order/print')); ?>/<?php echo e($_master_id); ?>" class="_master_id">
+                                    
+                                    <?php endif; ?>
+                                   
+                                       <input type="hidden" name="_print" value="0" class="_save_and_print_value">
+
+                                    <input type="text" id="_note"  name="_note" class="form-control _note" value="<?php echo e(old('_note')); ?>" placeholder="Note" required >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="width: 10%;border:0px;"><label for="_term_condition">Term & Condition</label></td>
+                              <td style="width: 70%;border:0px;">
+                               <textarea class="form-control summernote" id="summernote" name="_term_condition"><?php echo e(old('_term_condition')); ?></textarea>
+
+                                   
+                              </td>
+                            </tr>
+                            <tr class="display_none">
+                              <td style="width: 10%;border:0px;"><label for="_sub_total">Sub Total</label></td>
+                              <td style="width: 70%;border:0px;">
+                                <input type="text" name="_sub_total" class="form-control width_200_px" id="_sub_total" readonly value="0">
+                              </td>
+                            </tr>
+                            <tr class="display_none">
+                              <td style="width: 10%;border:0px;"><label for="_discount_input">Invoice Discount</label></td>
+                              <td style="width: 70%;border:0px;">
+                                <input type="text" name="_discount_input" class="form-control width_200_px" id="_discount_input" value="0" >
+                              </td>
+                            </tr>
+                            <tr  class="display_none">
+                              <td style="width: 10%;border:0px;"><label for="_total_discount">Total Discount</label></td>
+                              <td style="width: 70%;border:0px;">
+                                <input type="text" name="_total_discount" class="form-control width_200_px" id="_total_discount" readonly value="0">
+                              </td>
+                            </tr>
+                           
+                            <tr >
+                              <td style="width: 10%;border:0px;"><label for="_total">NET Total </label></td>
+                              <td style="width: 70%;border:0px;">
+                          <input type="text" name="_total" class="form-control width_200_px" id="_total" readonly value="0">
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 bottom_save_section text-middle">
+                            <button type="submit" class="btn btn-success submit-button ml-5"><i class="fa fa-credit-card mr-2" aria-hidden="true"></i> Save</button>
+                            <button type="submit" class="btn btn-warning submit-button _save_and_print"><i class="fa fa-print mr-2" aria-hidden="true"></i> Save & Print</button>
+                        </div>
+                        <br><br>
+                        
+                    </div>
+                    <?php echo Form::close(); ?>
+
+                
+              </div>
+            </div>
+            <!-- /.card -->
+
+            
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+</div>
+
+
+
+
+</div>
+<?php echo $__env->make('backend.common-modal.item_ledger_modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+<?php echo $__env->make('backend.purchase-order.purchase_order_script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/u561342241/domains/saifinfotech.com/public_html/tmm/resources/views/backend/purchase-order/create.blade.php ENDPATH**/ ?>

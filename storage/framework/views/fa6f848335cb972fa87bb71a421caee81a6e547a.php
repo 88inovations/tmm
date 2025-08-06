@@ -1,0 +1,80 @@
+<div class="tab-pane " id="hrm_nominees">
+
+    <?php
+    $hrm_nominees = $data->hrm_nominees ?? '';
+    ?>
+    <div class="">
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._nname')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="text" name="_nname" class="form-control" value="<?php echo e($hrm_nominees->_nname ?? ''); ?>" placeholder="<?php echo e(__('label._nname')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._nfather')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="text" name="_nfather" class="form-control" value="<?php echo e($hrm_nominees->_nfather ?? ''); ?>" placeholder="<?php echo e(__('label._nfather')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._nmother')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="text" name="_nmother" class="form-control" value="<?php echo e($hrm_nominees->_nmother ?? ''); ?>" placeholder="<?php echo e(__('label._nmother')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._ndob')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="date" name="_ndob" class="form-control" value="<?php echo e($hrm_nominees->_ndob ?? ''); ?>" placeholder="<?php echo e(__('label._ndob')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._nnationalid')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="text" name="_nnationalid" class="form-control" value="<?php echo e($hrm_nominees->_nnationalid ?? ''); ?>" placeholder="<?php echo e(__('label._nnationalid')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._nmobile')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="text" name="_nmobile" class="form-control" value="<?php echo e($hrm_nominees->_nmobile ?? ''); ?>" placeholder="<?php echo e(__('label._nmobile')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._naddress1')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="text" name="_naddress1" class="form-control" value="<?php echo e($hrm_nominees->_naddress1 ?? ''); ?>" placeholder="<?php echo e(__('label._naddress1')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._naddress2')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="text" name="_naddress2" class="form-control" value="<?php echo e($hrm_nominees->_naddress2 ?? ''); ?>" placeholder="<?php echo e(__('label._naddress2')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._nrelation')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="text" name="_nrelation" class="form-control" value="<?php echo e($hrm_nominees->_nrelation ?? ''); ?>" placeholder="<?php echo e(__('label._nrelation')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._nbenefit')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                   <input type="text" name="_nbenefit" class="form-control" value="<?php echo e($hrm_nominees->_nbenefit ?? ''); ?>" placeholder="<?php echo e(__('label._nbenefit')); ?>">
+                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2"><?php echo e(__('label._nphoto')); ?>:</label>
+                <div class="col-xs-12 col-sm-12 col-md-5 ">
+                     <input type="file" accept="image/*" onchange="loadFile(event,3 )"  name="_nphoto" class="form-control">
+                               <img id="output_3" class="banner_image_create" src="<?php echo e(asset($hrm_nominees->_nphoto ?? $settings->logo ?? '')); ?>"  style="max-height:100px;max-width: 100px; " />
+
+                   
+                 </div>
+            </div>
+           
+    </div>
+
+</div>
+<?php /**PATH /home/u561342241/domains/saifinfotech.com/public_html/tmm/resources/views/hrm/hrm-employee/hrm_nominees.blade.php ENDPATH**/ ?>

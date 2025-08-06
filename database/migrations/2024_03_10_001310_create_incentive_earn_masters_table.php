@@ -1,0 +1,57 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateIncentiveEarnMastersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('incentive_earn_masters', function (Blueprint $table) {
+            $table->id();
+            $table->date('_date');
+            $table->string('_time')->nullable();
+            $table->integer('organization_id')->default(0);
+            $table->integer('_branch_id')->default(0);
+            $table->integer('_cost_center_id')->default(0);
+            $table->integer('_budget_id')->default(0);
+            $table->integer('_user_id')->default(0);
+            $table->string('_fescal_year')->nullable();
+            $table->integer('_ledger_id')->nullable();
+            $table->string('_referance')->nullable();
+            $table->string('_address')->nullable();
+            $table->string('_phone')->nullable();
+            $table->string('_note')->nullable();
+            $table->string('_user_name')->nullable();
+            $table->double('_sub_total',15,4)->default(0);
+            $table->double('_total',15,4)->default(0);
+            $table->double('_p_balance',15,4)->default(0);
+            $table->double('_l_balance',15,4)->default(0);
+            $table->tinyInteger('_status')->default(0);
+            $table->tinyInteger('_lock')->default(0);
+            $table->tinyInteger('_is_close')->default(0);
+            $table->string('_receive_type',60)->nullable();
+            $table->string('_created_by',60)->nullable();
+            $table->string('_updated_by',60)->nullable();
+            $table->timestamps();
+
+           
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('incentive_earn_masters');
+    }
+}
