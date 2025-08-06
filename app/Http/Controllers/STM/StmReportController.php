@@ -90,7 +90,7 @@ class StmReportController extends Controller
     it will be ajax call
 */
 
-public function division_class_wise_student_list(Request $request){
+/* public function division_class_wise_student_list(Request $request){
         $page_name  = __('label.division_class_wise_student_list');
         $auth_user = Auth::user();
          $datas =[];
@@ -116,6 +116,42 @@ public function division_class_wise_student_list(Request $request){
             ->orderBy('_division_id')
             ->orderBy('_class_id')
             ->get();
+
+
+        return view('stm.report.division_class_wise_student_list',compact('datas','page_name'));
+} */
+
+public function division_class_wise_student_list(Request $request){
+        $page_name  = __('label.division_class_wise_student_list');
+        $auth_user = Auth::user();
+         $datas =[];
+         $datas = StmDivisionClassStudent::where('_status',1);
+         
+         if($request->has('_admission_session_id') && $request->_admission_session_id){
+            $datas = $datas->where('_session',$request->_admission_session_id);
+         }
+         if($request->has('_education_type') && $request->_education_type){
+            $datas = $datas->where('_division_id',$request->_education_type);
+         }
+         if($request->has('_admission_class_id') && $request->_admission_class_id){
+            $datas = $datas->where('_class_id',$request->_admission_class_id);
+         }
+         
+        $datas = $datas->with(['division', 'class'])
+        ->when($request->filled('_session'), function ($query) use ($request) {
+            $query->where('_session', $request->_session);
+        })
+        ->when($request->filled('_division_id'), function ($query) use ($request) {
+            $query->where('_division_id', $request->_division_id);
+        })
+        ->when($request->filled('_class_id'), function ($query) use ($request) {
+            $query->where('_class_id', $request->_class_id);
+        })
+        ->orderBy('_session')
+        ->orderBy('_division_id')
+        ->orderBy('_class_id')
+        ->get();
+
 
 
         return view('stm.report.division_class_wise_student_list',compact('datas','page_name'));
