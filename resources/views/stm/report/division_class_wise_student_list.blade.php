@@ -33,10 +33,15 @@
                <tr style="line-height: 16px;" > <td class="text-center" style="border:none;">
                   Date & Time: {{ date('d-m-Y H:s a') }}
               </td></tr>
+        <tr style="line-height: 16px;" > 
+        <td class="text-center" style="border:none;font-size:20px;color:#F4791F;">
+                  <b>Total Students Found: {{ $datas->count() }}</b>
+        </td>
+        </tr>
 
 
                 
-              </table>
+              </table> 
             </td>
             
           </tr>
@@ -45,7 +50,7 @@
       
 
     <!-- Table row -->
-   <table class="cewReportTable">
+ <!--   <table class="cewReportTable">
           <thead>
           <tr>
             <td style="width:5%;" class="white_space">{{__('label.sl')}}</td>
@@ -88,9 +93,42 @@ $_total_number_of_student +=$data->_number_of_student ?? 0;
               </td>
             </tr>
           </tfoot>
-        </table>
+        </table> -->
 
+   <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Student Name</th>
+            <th>Session</th>
+            <th>Division</th>
+            <th>Class</th>
+            <th>Roll</th>
+            <th>Gender</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+@php
+  $sortedDatas = $datas->sortBy(function($item) {
+    return $item->_student->_roll_no;
+  });
+@endphp
 
+@foreach($sortedDatas as $index => $student)
+    <tr>
+        <td>{{ $index + 1 }}</td>
+        <td>{{ $student->_student->_name_in_english ?? 'N/A' }}</td>
+        <td>{!! _id_to_name($student->_session,'_name','stm_education_sessions') !!}</td>
+        <td>{!! _id_to_name($student->_division_id,'_name','stm_divisions') !!}</td>
+        <td>{!! _id_to_name($student->_class_id,'_name','stm_classes') ?? 'N/A' !!}</td>
+        <td>{{ $student->_student->_roll_no }}</td>
+        <td>{{ ucfirst($student->_student->_gender ?? 'N/A') }}</td>
+        <td>{{ $student->_student->_f_mobile_no }}</td>
+    </tr>
+@endforeach
+    </tbody>
+</table>
     
     <!-- /.row -->
   </section>
