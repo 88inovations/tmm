@@ -1,7 +1,7 @@
-@extends('backend.layouts.app')
-@section('title',$page_name)
 
-@section('content')
+<?php $__env->startSection('title',$page_name); ?>
+
+<?php $__env->startSection('content'); ?>
 
   <div class="content ">
       <div class="container-fluid">
@@ -10,33 +10,34 @@
           <div class="card">
            <div class="row mb-2">
                   <div class="col-sm-6">
-                    <a class="m-0 _page_name" href="{{ route('stm_classes.index') }}">{!! $page_name !!} </a>
+                    <a class="m-0 _page_name" href="<?php echo e(route('stm_classes.index')); ?>"><?php echo $page_name; ?> </a>
                   </div><!-- /.col -->
                   <div class="col-sm-6">
                     
                   </div><!-- /.col -->
                 </div><!-- /.row -->
          <div class="message-area">
-    @include('backend.message.message')
+    <?php echo $__env->make('backend.message.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div> 
         
 
 
 
             <div class="card-body p-4" >
-               {!! Form::model($data, ['method' => 'PATCH','route' => ['stm_classes.update', $data->id]]) !!}
+               <?php echo Form::model($data, ['method' => 'PATCH','route' => ['stm_classes.update', $data->id]]); ?>
+
                 <div class="row">
                       <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label>{{__('label._code')}}:<span class="_required">*</span></label>
-                                <input class="form-control" type="text" name="_code" placeholder="{{__('label._code')}}" value="{{old('_code',$data->_code ?? '' )}}" required>
-                                <input type="hidden" name="id" value="{{$data->id}}">
+                                <label><?php echo e(__('label._code')); ?>:<span class="_required">*</span></label>
+                                <input class="form-control" type="text" name="_code" placeholder="<?php echo e(__('label._code')); ?>" value="<?php echo e(old('_code',$data->_code ?? '' )); ?>" required>
+                                <input type="hidden" name="id" value="<?php echo e($data->id); ?>">
                             </div>
                         </div>
                       <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label>{{__('label._name')}}:<span class="_required">*</span></label>
-                                <input class="form-control" type="text" name="_name" placeholder="{{__('label._name')}}" value="{{old('_name',$data->_name ?? '' )}}" required>
+                                <label><?php echo e(__('label._name')); ?>:<span class="_required">*</span></label>
+                                <input class="form-control" type="text" name="_name" placeholder="<?php echo e(__('label._name')); ?>" value="<?php echo e(old('_name',$data->_name ?? '' )); ?>" required>
                             </div>
                         </div>
                         
@@ -45,36 +46,36 @@
 
                        <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label>{{__('label.start_time')}}:<span class="_required">*</span></label>
-                                <input class="form-control" type="text" name="start_time" placeholder="{{__('label.start_time')}}" value="{{old('start_time',$data->start_time ?? '' )}}" required>
+                                <label><?php echo e(__('label.start_time')); ?>:<span class="_required">*</span></label>
+                                <input class="form-control" type="text" name="start_time" placeholder="<?php echo e(__('label.start_time')); ?>" value="<?php echo e(old('start_time',$data->start_time ?? '' )); ?>" required>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label>{{__('label.end_time')}}:<span class="_required">*</span></label>
-                                <input class="form-control" type="text" name="end_time" placeholder="{{__('label.end_time')}}" value="{{old('end_time',$data->end_time ?? '' )}}" required>
+                                <label><?php echo e(__('label.end_time')); ?>:<span class="_required">*</span></label>
+                                <input class="form-control" type="text" name="end_time" placeholder="<?php echo e(__('label.end_time')); ?>" value="<?php echo e(old('end_time',$data->end_time ?? '' )); ?>" required>
                             </div>
                         </div>
 
                         
                       <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label>{{__('label._detail')}}:</label>
-                                <textarea class="form-control" type="text" name="_detail" placeholder="{{__('label._detail')}}">{{old('_detail',$data->_detail ?? '' )}}</textarea>
+                                <label><?php echo e(__('label._detail')); ?>:</label>
+                                <textarea class="form-control" type="text" name="_detail" placeholder="<?php echo e(__('label._detail')); ?>"><?php echo e(old('_detail',$data->_detail ?? '' )); ?></textarea>
                                 
                             </div>
                         </div>
                       <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label>{{__('label._status')}}:</label>
+                                <label><?php echo e(__('label._status')); ?>:</label>
                                 <select class="form-control" name="_status">
-                                  <option value="1" @if($data->_status==1) selected @endif>Active</option>
-                                  <option value="0" @if($data->_status==0) selected @endif>In Active</option>
+                                  <option value="1" <?php if($data->_status==1): ?> selected <?php endif; ?>>Active</option>
+                                  <option value="0" <?php if($data->_status==0): ?> selected <?php endif; ?>>In Active</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12  text-middle">
-                            <button type="submit" class="btn btn-success  ml-5"><i class="fa fa-credit-card mr-2" aria-hidden="true"></i> {{__('label.save')}}</button>
+                            <button type="submit" class="btn btn-success  ml-5"><i class="fa fa-credit-card mr-2" aria-hidden="true"></i> <?php echo e(__('label.save')); ?></button>
                            
                         </div>
                         <br><br>
@@ -83,7 +84,8 @@
                     
                     
                      
-                    {!! Form::close() !!}
+                    <?php echo Form::close(); ?>
+
                 
               </div>
           
@@ -96,9 +98,9 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
+<?php $__env->startSection('script'); ?>
 
 <script type="text/javascript">
 
@@ -106,7 +108,7 @@
  
     $(function () {
 
-     var default_date_formate = `{{default_date_formate()}}`
+     var default_date_formate = `<?php echo e(default_date_formate()); ?>`
     
      $('#reservationdate').datetimepicker({
         format:default_date_formate
@@ -151,17 +153,17 @@
                         <input type="hidden" name="_detail_id[]" value="0">
                       </td>
                       <td>
-                        <input type="text" name="_name[]" class="form-control  width_280_px" placeholder="{{__('label.title')}}">
+                        <input type="text" name="_name[]" class="form-control  width_280_px" placeholder="<?php echo e(__('label.title')); ?>">
                       </td>
                       <td>
-                        <input type="date" name="_date[]" class="form-control width_250_px _date" placeholder="{{__('label.date')}}">
+                        <input type="date" name="_date[]" class="form-control width_250_px _date" placeholder="<?php echo e(__('label.date')); ?>">
                       </td>
                       <td>
                         <select class="form-control" name="_type[]">
-                          @forelse(full_half() as $fh)
-                          <option value="{{$fh}}">{!! $fh ?? '' !!}</option>
-                          @empty
-                          @endforelse
+                          <?php $__empty_1 = true; $__currentLoopData = full_half(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $fh): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                          <option value="<?php echo e($fh); ?>"><?php echo $fh ?? ''; ?></option>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                          <?php endif; ?>
                         </select>
                       </td>
                     </tr>`;
@@ -179,5 +181,7 @@
          
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('backend.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\tmm\resources\views/stm/stm_classes/edit.blade.php ENDPATH**/ ?>

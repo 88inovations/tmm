@@ -34,15 +34,17 @@ class HrmAttendanceController extends Controller
        if($request->has('limit')){
             $limit = $request->limit ??  default_pagination();
             session()->put('_u_limit', $request->limit);
-        }else{
+        } else {
              $limit= Session::get('_u_limit') ??  default_pagination();
             
         }
+
         $page_name = $this->page_name;
         $_asc_desc = $request->_asc_desc ?? 'DESC';
         $asc_cloumn =  $request->asc_cloumn ?? 'id';
 
         $datas = HrmAttendance::with(['_employee_info'])->where('_is_delete',0);
+        
         if($request->has('organization_id') && $request->organization_id !=''){
             $datas = $datas->whereIn('organization_id',$request->organization_id);
         }else{

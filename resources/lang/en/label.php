@@ -1518,4 +1518,10 @@ return [
     '_user_id' => 'Entry By',
     'finished_goods_receive_to_stock' => 'Finished Goods Receive To Stock',
 
+    'attendence_report_section' => 'Attendence Report Section',
+    'datewise_attendence_report' => 'Datewise Attendence Report',
+
+    'start_time' => 'Start Time',
+    'end_time' => 'End Time',
+
 ];
