@@ -11,6 +11,11 @@ use App\Http\Controllers\STM\StmSubjectController;
 use App\Http\Controllers\STM\StudentModuleSetupController;
 use App\Http\Controllers\STM\StmBillMasterController;
 use App\Http\Controllers\STM\StmReportController;
+use App\Http\Controllers\STM\AttendanceReportController;
+
+
+
+Route::get('/attendance-report', [AttendanceReportController::class, 'index']);
 
 
 Route::get('attandance_update',function(){

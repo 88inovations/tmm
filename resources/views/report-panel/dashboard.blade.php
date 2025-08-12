@@ -708,7 +708,7 @@ $__user= Auth::user();
            <div class="dropdown-divider"></div>
            @can('division_class_student_report')
            
-          <a href="#" class="dropdown-item">
+          <a href="{{url('attendance-report')}}" class="dropdown-item">
             <i class="fa fa-sitemap mr-2" aria-hidden="true"></i>{{ __('label.datewise_attendence_report') }} </a>
          @endcan
            
