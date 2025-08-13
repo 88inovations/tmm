@@ -9,14 +9,14 @@ $__user= Auth::user();
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12" style="display: flex;">
-            <a class="m-0 _page_name" href="<?php echo e(route('stm_classes.index')); ?>"><?php echo $page_name ?? ''; ?> </a>
+            <a class="m-0 _page_name" href="<?php echo e(route('stm_subjects.index')); ?>"><?php echo $page_name ?? ''; ?> </a>
             <ol class="breadcrumb float-sm-right ml-2">
-               <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('stm_classes_create')): ?>
+               <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('stm_subjects_create')): ?>
              <li class="breadcrumb-item active">
                 <a type="button" 
                class="btn btn-sm btn-info" 
               
-               href="<?php echo e(route('stm_classes.create')); ?>">
+               href="<?php echo e(route('stm_subjects.create')); ?>">
                    <i class="nav-icon fas fa-plus"></i> <?php echo e(__('label.create_new')); ?>
 
                 </a>
@@ -56,6 +56,7 @@ $__user= Auth::user();
                   <?php echo $__env->make('stm.common_search', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                       
                     </div>
+                    
                   </div>
               </div>
               <div class="card-body">
@@ -68,19 +69,8 @@ $__user= Auth::user();
                          <th class=""><b><?php echo e(__('label.id')); ?></b></th>
                          <th class=""><b><?php echo e(__('label._name')); ?></b></th>
                          <th class=""><b><?php echo e(__('label._code')); ?></b></th>
-                         <th class=""><b><?php echo e(__('label._detail')); ?></b></th>
-<<<<<<< HEAD
-=======
-
-
-                         <th class=""><b><?php echo e(__('label.start_time')); ?></b></th>
-                         <th class=""><b><?php echo e(__('label.end_time')); ?></b></th>
-
-
->>>>>>> fbe132d3fb351739dff3f831843b3627365dbd08
                          <th class=""><b><?php echo e(__('label._status')); ?></b></th>
                          <th class=""><b><?php echo e(__('label.user')); ?></b></th>
-                         <th class=""><b><?php echo e(__('label._lock')); ?></b></th>
                       </tr>
                      </thead>
                      <tbody>
@@ -90,20 +80,20 @@ $__user= Auth::user();
                         <tr>
                             
                              <td style="display: flex;">
-                              <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('stm_classes_delete')): ?>
-                                 <?php echo Form::open(['method' => 'DELETE','route' => ['stm_classes.destroy', $data->id],'style'=>'display:inline']); ?>
+                              <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('stm_subjects_delete')): ?>
+                                 <?php echo Form::open(['method' => 'DELETE','route' => ['stm_subjects.destroy', $data->id],'style'=>'display:inline']); ?>
 
                                       <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm btn-default mr-2"><i class="fa fa-trash _required"></i></button>
                                   <?php echo Form::close(); ?>
 
                                <?php endif; ?> 
                               <a  type="button" 
-                                  href="<?php echo e(route('stm_classes.show',$data->id)); ?>"
+                                  href="<?php echo e(route('stm_subjects.show',$data->id)); ?>"
                                   class="btn btn-sm btn-default  mr-2"><i class="fa fa-eye"></i></a>
 
-                             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('stm_classes_edit')): ?>
+                             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('stm_subjects_edit')): ?>
                                   <a  type="button" 
-                                  href="<?php echo e(route('stm_classes.edit',$data->id)); ?>"
+                                  href="<?php echo e(route('stm_subjects.edit',$data->id)); ?>"
                                  
                                   class="btn btn-sm btn-default  mr-1"><i class="fa fa-pen "></i></a>
                               <?php endif; ?>  
@@ -112,23 +102,9 @@ $__user= Auth::user();
                             <td><?php echo e($data->id); ?></td>
                             <td><?php echo e($data->_name ?? ''); ?></td>
                             <td><?php echo e($data->_code ?? ''); ?></td>
-                            <td><?php echo e($data->_detail ?? ''); ?></td>
-<<<<<<< HEAD
-=======
-
-                            <td><?php echo e($data->start_time ?? ''); ?></td>
-                            <td><?php echo e($data->end_time ?? ''); ?></td>
-
->>>>>>> fbe132d3fb351739dff3f831843b3627365dbd08
                            <td><?php echo e(selected_status($data->_status)); ?></td>
                             <td><?php echo e($data->_user_name ?? ''); ?></td>
-                            <td>
-                               <?php if($data->_lock==1): ?>
-                              <i class="fa fa-lock _green ml-1 _icon_change__<?php echo e($data->id); ?>" aria-hidden="true"></i>
-                              <?php else: ?>
-                              <i class="fa fa-lock _required ml-1 _icon_change__<?php echo e($data->id); ?>" aria-hidden="true"></i>
-                              <?php endif; ?>
-                            </td>
+                          
                            
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -217,4 +193,4 @@ function after_request_date__today(_date){
 
 </script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\tmm\resources\views/stm/stm_classes/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\tmm\resources\views/stm/stm_subjects/index.blade.php ENDPATH**/ ?>

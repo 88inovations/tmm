@@ -42,6 +42,8 @@
                         </div>
                         
                       
+<<<<<<< HEAD
+=======
 
 
                        <div class="col-xs-12 col-sm-12 col-md-12">
@@ -58,6 +60,7 @@
                         </div>
 
                         
+>>>>>>> fbe132d3fb351739dff3f831843b3627365dbd08
                       <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label><?php echo e(__('label._detail')); ?>:</label>
