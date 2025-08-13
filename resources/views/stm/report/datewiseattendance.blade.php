@@ -12,6 +12,17 @@
                 <input type="date" name="date" class="form-control" value="{{ request('date') }}" required>
             </div>
             <div class="col-md-3">
+                <label>Division:</label>
+                <select name="division_id" class="form-control" required>
+                    <option value="">Select Division</option>
+                    @foreach($divisions as $division)
+                        <option value="{{ $division->id }}" {{ request('division_id') == $division->id ? 'selected' : '' }}>
+                            {{ $division->_name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-3">
                 <label>Class:</label>
                 <select name="class_id" class="form-control" required>
                     <option value="">Select Class</option>
@@ -42,6 +53,7 @@
                 <tr>
                     <th>Student Roll</th>
                     <th>Name</th>
+                    <th>Division</th>
                     <th>Class</th>
                     <th>Date</th>
                     <th>In Time</th>
@@ -54,6 +66,7 @@
                     <tr>
                         <td>{{ $r->student_roll }}</td>
                         <td>{{ $r->student_name }}</td>
+                        <td>{{ $r->division_name }}</td>
                         <td>{{ $r->class_name }}</td>
                         <td>{{ $r->date ? \Carbon\Carbon::parse($r->date)->format('Y-m-d') : '' }}</td>
                         <td>{{ $r->in_time }}</td>

@@ -12,6 +12,18 @@
                 <input type="date" name="date" class="form-control" value="<?php echo e(request('date')); ?>" required>
             </div>
             <div class="col-md-3">
+                <label>Division:</label>
+                <select name="division_id" class="form-control" required>
+                    <option value="">Select Division</option>
+                    <?php $__currentLoopData = $divisions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $division): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($division->id); ?>" <?php echo e(request('division_id') == $division->id ? 'selected' : ''); ?>>
+                            <?php echo e($division->_name); ?>
+
+                        </option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+            </div>
+            <div class="col-md-3">
                 <label>Class:</label>
                 <select name="class_id" class="form-control" required>
                     <option value="">Select Class</option>
@@ -43,6 +55,7 @@
                 <tr>
                     <th>Student Roll</th>
                     <th>Name</th>
+                    <th>Division</th>
                     <th>Class</th>
                     <th>Date</th>
                     <th>In Time</th>
@@ -55,6 +68,7 @@
                     <tr>
                         <td><?php echo e($r->student_roll); ?></td>
                         <td><?php echo e($r->student_name); ?></td>
+                        <td><?php echo e($r->division_name); ?></td>
                         <td><?php echo e($r->class_name); ?></td>
                         <td><?php echo e($r->date ? \Carbon\Carbon::parse($r->date)->format('Y-m-d') : ''); ?></td>
                         <td><?php echo e($r->in_time); ?></td>
