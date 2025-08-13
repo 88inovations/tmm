@@ -42,6 +42,25 @@
                         </div>
                         
                       
+<<<<<<< HEAD
+=======
+
+
+                       <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label><?php echo e(__('label.start_time')); ?>:<span class="_required">*</span></label>
+                                <input class="form-control" type="text" name="start_time" placeholder="<?php echo e(__('label.start_time')); ?>" value="<?php echo e(old('start_time',$data->start_time ?? '' )); ?>" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label><?php echo e(__('label.end_time')); ?>:<span class="_required">*</span></label>
+                                <input class="form-control" type="text" name="end_time" placeholder="<?php echo e(__('label.end_time')); ?>" value="<?php echo e(old('end_time',$data->end_time ?? '' )); ?>" required>
+                            </div>
+                        </div>
+
+                        
+>>>>>>> fbe132d3fb351739dff3f831843b3627365dbd08
                       <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label><?php echo e(__('label._detail')); ?>:</label>

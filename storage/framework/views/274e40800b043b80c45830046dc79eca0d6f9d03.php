@@ -86,8 +86,8 @@ $permited_organizations = permited_organization(explode(',',$users->organization
                          <?php if(sizeof($permited_costcenters) > 1): ?>
                          <th><?php echo e(__('label._cost_center_id')); ?></th>
                          <?php endif; ?>
-                         <th><?php echo e(__('EMP ID')); ?></th>
-                         <th><?php echo e(__('Employee Name')); ?></th>
+                         <th><?php echo e(__(' ID')); ?></th>
+                         <th><?php echo e(__(' Name')); ?></th>
                          <th><?php echo e(__('label._date')); ?></th>
                          <th><?php echo e(__('label.in_time')); ?></th>
                          <th><?php echo e(__('label.out_time')); ?></th>

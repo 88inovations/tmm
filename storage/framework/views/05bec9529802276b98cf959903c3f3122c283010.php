@@ -760,6 +760,22 @@ $__user= Auth::user();
          <?php endif; ?>
 
                             </div>
+
+             <!-- Attendence Report Section -->
+              <div class="card" style="border: 1px solid silver;">
+                    <h4 class="text-center"><?php echo e(__('label.attendence_report_section')); ?></h4>
+                   
+     
+           <div class="dropdown-divider"></div>
+           <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('division_class_student_report')): ?>
+           
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-sitemap mr-2" aria-hidden="true"></i><?php echo e(__('label.datewise_attendence_report')); ?> </a>
+         <?php endif; ?>
+           
+
+                            </div>
+
                         </div>
  
 

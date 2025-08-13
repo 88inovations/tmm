@@ -69,6 +69,15 @@ $__user= Auth::user();
                          <th class=""><b><?php echo e(__('label._name')); ?></b></th>
                          <th class=""><b><?php echo e(__('label._code')); ?></b></th>
                          <th class=""><b><?php echo e(__('label._detail')); ?></b></th>
+<<<<<<< HEAD
+=======
+
+
+                         <th class=""><b><?php echo e(__('label.start_time')); ?></b></th>
+                         <th class=""><b><?php echo e(__('label.end_time')); ?></b></th>
+
+
+>>>>>>> fbe132d3fb351739dff3f831843b3627365dbd08
                          <th class=""><b><?php echo e(__('label._status')); ?></b></th>
                          <th class=""><b><?php echo e(__('label.user')); ?></b></th>
                          <th class=""><b><?php echo e(__('label._lock')); ?></b></th>
@@ -104,6 +113,13 @@ $__user= Auth::user();
                             <td><?php echo e($data->_name ?? ''); ?></td>
                             <td><?php echo e($data->_code ?? ''); ?></td>
                             <td><?php echo e($data->_detail ?? ''); ?></td>
+<<<<<<< HEAD
+=======
+
+                            <td><?php echo e($data->start_time ?? ''); ?></td>
+                            <td><?php echo e($data->end_time ?? ''); ?></td>
+
+>>>>>>> fbe132d3fb351739dff3f831843b3627365dbd08
                            <td><?php echo e(selected_status($data->_status)); ?></td>
                             <td><?php echo e($data->_user_name ?? ''); ?></td>
                             <td>

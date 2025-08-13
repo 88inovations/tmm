@@ -37,6 +37,17 @@ class StmClassController extends Controller
         if($request->has('_code') && $request->_code !=''){
             $datas = $datas->where('_code','like',"%$request->_code%");
         }
+
+
+        if($request->has('start_time') && $request->_code !=''){
+            $datas = $datas->where('start_time','like',"%$request->_code%");
+        }
+
+        if($request->has('end_time') && $request->_code !=''){
+            $datas = $datas->where('end_time','like',"%$request->_code%");
+        }
+
+
         if($request->has('_address') && $request->_address !=''){
             $datas = $datas->where('_address','like',"%$request->_address%");
         }
@@ -92,6 +103,8 @@ class StmClassController extends Controller
         $data->_code       = $request->_code ?? '';
         $data->_detail    = $request->_detail ?? '';
         $data->_status     = $request->_status ?? 0;
+        $data->start_time     = $request->start_time ?? '';
+        $data->end_time     = $request->end_time ?? '';
         $data->_user_name  =$auth_user->name;
         $data->_user_id     = $auth_user->id;
         $data->save();
@@ -148,6 +161,10 @@ class StmClassController extends Controller
         $data->_code       = $request->_code ?? '';
         $data->_detail    = $request->_detail ?? '';
         $data->_status     = $request->_status ?? 0;
+
+        $data->start_time     = $request->start_time ?? '';
+        $data->end_time     = $request->end_time ?? '';
+        
         $data->_user_name  =$auth_user->name;
         $data->_user_id     = $auth_user->id;
         $data->save();

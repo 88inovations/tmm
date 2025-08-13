@@ -41,6 +41,22 @@
                         </div>
                         
                       
+
+
+                       <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label>{{__('label.start_time')}}:<span class="_required">*</span></label>
+                                <input class="form-control" type="text" name="start_time" placeholder="{{__('label.start_time')}}" value="{{old('start_time',$data->start_time ?? '' )}}" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label>{{__('label.end_time')}}:<span class="_required">*</span></label>
+                                <input class="form-control" type="text" name="end_time" placeholder="{{__('label.end_time')}}" value="{{old('end_time',$data->end_time ?? '' )}}" required>
+                            </div>
+                        </div>
+
+                        
                       <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label>{{__('label._detail')}}:</label>

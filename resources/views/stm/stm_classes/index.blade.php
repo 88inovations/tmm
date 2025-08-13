@@ -68,6 +68,12 @@ $__user= Auth::user();
                          <th class=""><b>{{__('label._name')}}</b></th>
                          <th class=""><b>{{__('label._code')}}</b></th>
                          <th class=""><b>{{__('label._detail')}}</b></th>
+
+
+                         <th class=""><b>{{__('label.start_time')}}</b></th>
+                         <th class=""><b>{{__('label.end_time')}}</b></th>
+
+
                          <th class=""><b>{{__('label._status')}}</b></th>
                          <th class=""><b>{{__('label.user')}}</b></th>
                          <th class=""><b>{{__('label._lock')}}</b></th>
@@ -101,6 +107,10 @@ $__user= Auth::user();
                             <td>{{ $data->_name ?? '' }}</td>
                             <td>{{ $data->_code ?? '' }}</td>
                             <td>{{ $data->_detail ?? '' }}</td>
+
+                            <td>{{ $data->start_time ?? '' }}</td>
+                            <td>{{ $data->end_time ?? '' }}</td>
+
                            <td>{{ selected_status($data->_status) }}</td>
                             <td>{{ $data->_user_name ?? '' }}</td>
                             <td>

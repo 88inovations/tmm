@@ -85,8 +85,8 @@ $permited_organizations = permited_organization(explode(',',$users->organization
                          @if(sizeof($permited_costcenters) > 1)
                          <th>{{__('label._cost_center_id')}}</th>
                          @endif
-                         <th>{{__('EMP ID')}}</th>
-                         <th>{{__('Employee Name')}}</th>
+                         <th>{{__(' ID')}}</th>
+                         <th>{{__(' Name')}}</th>
                          <th>{{__('label._date')}}</th>
                          <th>{{__('label.in_time')}}</th>
                          <th>{{__('label.out_time')}}</th>
