@@ -646,6 +646,7 @@ $datas = $datas->orderBy($asc_cloumn,$_asc_desc)
         $data->_admission_session_id = $request->_admission_session_id ?? '';
         $data->_education_type       = $request->_education_type ?? '';
         $data->_admission_class_id    = $request->_admission_class_id ?? '';
+        $data->_current_class_id    = $request->_admission_class_id ?? '';
         $data->_adminssion_fee_amount = $request->_adminssion_fee_amount ?? 0;
         $data->_monthly_fee           = $request->_monthly_fee ?? 0;
         $data->_name_in_english       = $request->_name_in_english ?? '';

@@ -47,7 +47,7 @@
       <a style="cursor: pointer;" onclick="fnExcelReport();" class="nav-link"  title="Excel Download" ><i class="fa fa-file-excel" aria-hidden="true"></i></a>
   </div>
 
-        <div id="printablediv">
+    <div id="printablediv">
         <table class="table table-bordered table-striped mt-4">
             <thead>
                 <tr>
